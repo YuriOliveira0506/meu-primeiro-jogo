@@ -9,6 +9,9 @@ func _process(delta: float) -> void:
 	velocity.y += gravity * delta
 	var move_direction = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	
+	if Input.is_action_pressed("jump"):
+		velocity.y = jump_force /3
+		
 	velocity.x = move_speed * move_direction
 	
 	move_and_slide(velocity)
